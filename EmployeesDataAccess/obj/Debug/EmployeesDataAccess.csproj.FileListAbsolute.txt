@@ -1,0 +1,12 @@
+C:\Users\docto\source\repos\WebApiProjectDemo\EmployeesDataAccess\bin\Debug\EmployeesDataAccess.dll.config
+C:\Users\docto\source\repos\WebApiProjectDemo\EmployeesDataAccess\bin\Debug\EmployeesDataAccess.dll
+C:\Users\docto\source\repos\WebApiProjectDemo\EmployeesDataAccess\bin\Debug\EmployeesDataAccess.pdb
+C:\Users\docto\source\repos\WebApiProjectDemo\EmployeesDataAccess\bin\Debug\EntityFramework.dll
+C:\Users\docto\source\repos\WebApiProjectDemo\EmployeesDataAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\docto\source\repos\WebApiProjectDemo\EmployeesDataAccess\bin\Debug\EntityFramework.xml
+C:\Users\docto\source\repos\WebApiProjectDemo\EmployeesDataAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\docto\source\repos\WebApiProjectDemo\EmployeesDataAccess\obj\Debug\EmployeesDataAccess.csprojAssemblyReference.cache
+C:\Users\docto\source\repos\WebApiProjectDemo\EmployeesDataAccess\obj\Debug\EmployeesDataAccess.csproj.CoreCompileInputs.cache
+C:\Users\docto\source\repos\WebApiProjectDemo\EmployeesDataAccess\obj\Debug\EmployeesDataAccess.csproj.CopyComplete
+C:\Users\docto\source\repos\WebApiProjectDemo\EmployeesDataAccess\obj\Debug\EmployeesDataAccess.dll
+C:\Users\docto\source\repos\WebApiProjectDemo\EmployeesDataAccess\obj\Debug\EmployeesDataAccess.pdb
