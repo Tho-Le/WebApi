@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Security.Cryptography.X509Certificates;
 using System.Web.Http;
 using EmployeesDataAccess;
 
@@ -90,6 +91,33 @@ namespace WebApiProjectDemo.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, e);
             }
 
+        }
+        public HttpResponseMessage Put(int id, [FromBody]Employee employee)
+        {
+            try
+            {
+                EmployeeDBEntities entities = new EmployeeDBEntities();
+                var entity = entities.Employees.FirstOrDefault(e => e.ID == id);
+                if (entity != null)
+                {
+                    entity.FirstName = employee.FirstName;
+                    entity.LastName = employee.LastName;
+                    entity.ID = employee.ID;
+                    entity.Gender = employee.Gender;
+                    entity.Salary = employee.Salary;
+                    entities.SaveChanges();
+                    return Request.CreateResponse(HttpStatusCode.OK, employee);
+                }
+                else
+                {
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, $"Emmploy with {id} not found");
+                }
+                
+            }
+            catch (Exception e)
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, e);
+            }
         }
     }
 }
