@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Security.Cryptography.X509Certificates;
+using System.Text;
 using System.Web.Http;
 using EmployeesDataAccess;
 
@@ -18,10 +19,24 @@ namespace WebApiProjectDemo.Controllers
         //When the controller gets the data from the database, the job of the controller is done
         //it then sends the data to the API pipeline and depending on the formant the client has requested
         //it will then format the data according i.e. XML, JSON
-        public IEnumerable<Employee> Get()
+        public HttpResponseMessage Get(string gender = "All")
         {
             var employees = new EmployeeDBEntities();
-            return employees.Employees.ToList();
+            switch (gender.ToLower())
+            {
+                case "all":
+                    return Request.CreateResponse(HttpStatusCode.OK, employees);
+                case "male":
+                    return Request.CreateResponse(HttpStatusCode.OK,
+                        employees.Employees.Where(e => e.Gender == "male"));
+                case "female":
+                    return Request.CreateResponse(HttpStatusCode.OK,
+                        employees.Employees.Where(e => e.Gender == "female"));
+                default:
+                    return Request.CreateErrorResponse(HttpStatusCode.BadRequest, $"Value for gender must be all, male, or female, {gender} is invalid.");
+                    
+
+            }
         }
 
         //By default, if client request an id that doesn't exist, it will response with a status code
@@ -110,7 +125,7 @@ namespace WebApiProjectDemo.Controllers
                 }
                 else
                 {
-                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, $"Emmploy with {id} not found");
+                    return Request.CreateErrorResponse(HttpStatusCode.NotFound, $"Employee with {id} not found");
                 }
                 
             }
